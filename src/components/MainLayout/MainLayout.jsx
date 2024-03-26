@@ -3,7 +3,7 @@ import Home from "../Home/Home";
 
 const MainLayout = () => {
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-full mx-auto">
             <Home></Home>
         </div>
     );
