@@ -3,10 +3,10 @@ import { useForm } from 'react-hook-form';
 import useAxiosSecure from '../../AxiosSecure/useAxiosSecure';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
-import useTasks from '../../useTasks/useTasks';
+import useVideos from '../../useTasks/useVideos';
 import { useToasts } from "react-toast-notifications";
 function AddTask() {
-    const { data, isLoading } = useTasks()
+    const { data, isLoading } = useVideos()
     const { addToast } = useToasts();
     const count = data?.result?.length + 1
     const { user } = useContext(AuthContext);

@@ -1,50 +1,74 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import img from '../../../assets/banner.jpg';
 
+import React, { useEffect, useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FaStar } from "react-icons/fa";
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+
+
+import { Pagination } from 'swiper/modules';
+import useVideos from '../../useTasks/useVideos';
 const Banner = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1 } },
-  };
+  const [slidesPerView, setSlidesPerView] = useState(4);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
+  const { data, refetch } = useVideos()
+  console.log(data);
+  useEffect(() => {
+    // Update slidesPerView based on screen size
+    const updateSlidesPerView = () => {
+      if (window.innerWidth < 640) {
+        setSlidesPerView(3); 
+      } else {
+        setSlidesPerView(4);
+      }
+    };
+
+    // Call updateSlidesPerView on component mount and resize
+    updateSlidesPerView();
+    window.addEventListener('resize', updateSlidesPerView);
+    return () => window.removeEventListener('resize', updateSlidesPerView);
+  }, []);
 
   return (
-    <motion.div
-      className='bg-white mx-5 mt-5'
-      variants={containerVariants}
-      initial='hidden'
-      animate='visible'
-    >
-      <div className='lg:flex lg:flex-row md:flex md:flex-row sm:flex sm:flex-col-reverse gap-10 items-center justify-between'>
-        <motion.div
-          className='lg:w-1/2 flex flex-col gap-5'
-          variants={itemVariants}
-        >
-          <p className='text-3xl'>World's No.1</p>
-          <h1 className='lg:text-5xl text-3xl font-bold '>
-            Best <span className='text-[#f1c40f]'>Task</span> Management System
-          </h1>
-          <p>
-            Tasky is a robust and user-friendly task management system that helps individuals and teams stay organized and productive
-          </p>
-          <Link to='/login'>
-            <button className='bg-[#f1c40f] px-6 py-3 rounded font-bold'>Let's Explore</button>
-          </Link>
-        </motion.div>
-        <motion.div
-          className='lg:w-1/2'
-          variants={itemVariants}
-        >
-          <img src={img} alt="" />
-        </motion.div>
-      </div>
-    </motion.div>
+    <>
+
+<div className='mx-5'>
+  <Swiper
+    slidesPerView={slidesPerView}
+    spaceBetween={30}
+    pagination={{
+      clickable: true,
+    }}
+    modules={[Pagination]}
+    className="mySwiper"
+  >
+    {
+      data?.map(video => {
+        return (
+          <SwiperSlide key={video?.id}>
+            <div className="relative">
+              <div
+                className="h-48 sm:h-64 md:h-72 lg:h-96 xl:h-96 w-full relative bg-cover bg-center"
+                style={{
+                  backgroundImage: `url(${video?.thumbnail_url})`,
+                }}
+              >
+                <div className="absolute bottom-0 w-full h-full bg-gradient-to-b from-transparent to-black opacity-80"></div>
+                <div className="absolute bottom-0 w-full p-2 font-medium text-white">{video?.name}</div>
+                <div className="absolute top-0 p-2 text-white flex items-center gap-1"><FaStar className='text-yellow-400 text-xl'></FaStar>{video?.rating}</div>
+                <div className="absolute top-0 right-0 p-2 text-white">{video?.category}</div>
+              </div>
+            </div>
+          </SwiperSlide>
+        );
+      })
+    }
+  </Swiper>
+</div>
+
+    </>
   );
 };
 

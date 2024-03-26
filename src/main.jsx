@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -74,7 +73,6 @@ const routes = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <DndProvider backend={HTML5Backend}>
       <AuthProvider>
         <QueryClientProvider client={queryClient}>
         <ToastProvider>
@@ -82,6 +80,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </ToastProvider>
         </QueryClientProvider>
       </AuthProvider>
-    </DndProvider>
   </React.StrictMode>
 )

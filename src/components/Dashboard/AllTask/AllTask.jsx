@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import useTasks from '../../useTasks/useTasks';
+import useVideos from '../../useTasks/useVideos';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../AxiosSecure/useAxiosSecure';
@@ -7,7 +7,7 @@ import { MdDeleteSweep } from "react-icons/md";
 import { useToasts } from 'react-toast-notifications';
 const AllTask = () => {
   const { addToast } = useToasts();
-  const { data, refetch} = useTasks()
+  const { data, refetch} = useVideos()
   console.log(data);
   const { loading } = useContext(AuthContext)
   const [todos, setTodos] = useState();
