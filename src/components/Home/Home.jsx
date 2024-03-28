@@ -1,10 +1,8 @@
 import { Helmet } from "react-helmet";
 import Banner from "./Banner/Banner";
 import Download from "./Download/Download";
-import Foote from "./Footer/Foote";
-import Navbar from "./Navbar/Navbar";
-import UserTypesSection from "./UserType/UserType";
-import RegisterNow from "./RegisterNow/RegisterNow";
+import AllVideos from "./UserType/AllVideos";
+import Plan from "./RegisterNow/RegisterNow";
 
 const Home = () => {
     return (
@@ -12,12 +10,10 @@ const Home = () => {
             <Helmet>
                 <title>YouFlix || Home</title>
             </Helmet>
-            <Navbar></Navbar>
             <Banner></Banner>
-            <UserTypesSection></UserTypesSection>
-            <RegisterNow></RegisterNow>
+            <AllVideos></AllVideos>
+            <Plan></Plan>
             <Download></Download>
-            <Foote></Foote>
         </div>
     );
 };

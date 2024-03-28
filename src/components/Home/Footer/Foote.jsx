@@ -5,8 +5,8 @@ const Foote = () => {
         <div>
             <footer className="footer p-10 bg-gray-700 text-neutral-content">
                 <aside>
-                    <h1 className="text-3xl font-bold">Tasky</h1>
-                    <p>Tasky Industries Ltd.<br />Providing reliable Task Management since 1992</p>
+                    <h1 className="text-3xl font-bold">YouFlix</h1>
+                    <p>YouFlix Industries Ltd.<br />Providing reliable Service since 1992</p>
                 </aside>
                 <nav>
                     <header className="footer-title">Social</header>

@@ -9,19 +9,15 @@ const Navbar = () => {
     const navigate = useNavigate()
     const navLink = <>
         <NavLink to='/'>Home</NavLink>
+        <NavLink to='/form'>Contract Form</NavLink>
+        <NavLink to='/login'>
+            <div className="flex p-2 items-center gap-1 justify-center">
+                <span className="flex-1">Sign In</span>
+                <ImEnter className="text-[#2076eb] text-xl"></ImEnter>
+            </div>
+        </NavLink>
 
-        {
-            user ? <NavLink to='/dashboard/home'>Dashboard</NavLink>
-                :
-                <>
-                    <NavLink to='/login'>
-                        <div className="flex p-2 items-center gap-1 justify-center">
-                            <span className="flex-1">Sign In</span>
-                            <ImEnter className="text-[#2076eb] text-xl"></ImEnter>
-                        </div>
-                    </NavLink>
-                </>
-        }
+
     </>
     const handleLogOut = () => {
         logOut()

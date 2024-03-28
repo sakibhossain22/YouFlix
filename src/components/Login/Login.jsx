@@ -4,7 +4,6 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from 'sweetalert2'
 import { Helmet } from "react-helmet";
-import axios from "axios";
 import image from '../../assets/login2.png'
 import { useToasts } from "react-toast-notifications";
 const Login = () => {
@@ -62,38 +61,38 @@ const Login = () => {
             <Helmet>
                 <title>YouFlix || Login</title>
             </Helmet>
-            <div className="flex flex-row-reverse w-full items-center justify-center">
+            <div className="flex text-white flex-row-reverse w-full items-center justify-center">
                 <div className="border lg:w-2/6 rounded-lg p-8">
                     <form onSubmit={handleEmailSign}>
-                        <h1 className="text-center text-black text-3xl font-bold uppercase my-5">Login Now</h1>
+                        <h1 className="text-center text-3xl font-bold uppercase my-5">Login Now</h1>
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-600">Email</label>
+                            <label className="block text-sm font-medium ">Email</label>
                             <input
                                 type="email"
                                 name="email"
                                 placeholder="Type Your Email"
-                                className="bg-white mt-1 p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
+                                className=" mt-1 p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
                                 required
                             />
                         </div>
                         <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-600">Password</label>
+                            <label className="block text-sm font-medium ">Password</label>
                             <input
                                 type="password"
                                 name="password"
                                 placeholder="Type Your Password"
-                                className="bg-white mt-1 p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
+                                className=" mt-1 p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
                                 required
                             />
                         </div>
                         <div className="mb-6">
-                            <button type="submit" className="w-full py-2 px-4 bg-[#f1c40f] text-white rounded hover:bg-green-700">
+                            <button type="submit" className="w-full py-2 px-4 bg-[#f1c40f]  rounded hover:bg-green-700">
                                 Login
                             </button>
                         </div>
-                        <p className="text-center text-black mb-4">Dont Have An Account? <NavLink className='font-bold px-2 py-1 rounded' to='/register'>Register</NavLink></p>
+                        <p className="text-center mb-4">Dont Have An Account? <NavLink className='font-bold px-2 py-1 rounded' to='/register'>Register</NavLink></p>
                     </form>
-                    <button onClick={HandleGoogleLogin} className='flex mx-auto items-center bg-white border lg:p-2 p-1 md:p-2 rounded-lg hover:bg-green-400 transition'>
+                    <button onClick={HandleGoogleLogin} className='flex mx-auto items-center  border lg:p-2 p-1 md:p-2 rounded-lg hover:bg-green-400 transition'>
                         <img className="w-8" src="https://i.ibb.co/zbMdxWH/Google-G-Logo-svg.webp" alt="Google Logo" />
                         <p className="ml-2">Google</p>
                     </button>

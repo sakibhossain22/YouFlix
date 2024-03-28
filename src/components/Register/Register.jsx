@@ -78,13 +78,13 @@ const Register = () => {
                             type="text"
                             name="name"
                             placeholder="Type Your Name"
-                            className="mt-1 bg-white p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
+                            className="mt-1  p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
                             required
                         />
                     </div>
                     <div className="mb-4">
                         <label className="block text-sm font-medium text-gray-600">Photo Url</label>
-                        <input type="text" name="photo" placeholder="Type Your Photo URL" className="mt-1 bg-white p-2 w-full border rounded focus:outline-none focus:border-indigo-500" required
+                        <input type="text" name="photo" placeholder="Type Your Photo URL" className="mt-1  p-2 w-full border rounded focus:outline-none focus:border-indigo-500" required
                         />
                     </div>
                     <div className="mb-4">
@@ -93,7 +93,7 @@ const Register = () => {
                             type="email"
                             name="email"
                             placeholder="Type Your Email"
-                            className="mt-1 bg-white p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
+                            className="mt-1  p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
                             required
                         />
                     </div>
@@ -103,18 +103,18 @@ const Register = () => {
                             type="password"
                             name="password"
                             placeholder="Type Your Password"
-                            className="mt-1 bg-white p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
+                            className="mt-1  p-2 w-full border rounded focus:outline-none focus:border-indigo-500"
                             required
                         />
                     </div>
                     <div className="mb-6">
-                        <button type="submit" className="w-full py-2 px-4 bg-[#f1c40f] text-white rounded hover:bg-indigo-700">
+                        <button type="submit" className="w-full py-2 px-4 bg-[#f1c40f]  rounded hover:bg-indigo-700">
                             Register
                         </button>
                     </div>
                 </form>
                 <p className="text-center text-gray-600">
-                    Already Have An Account? <NavLink className='text-white font-bold bg-green-600 px-2 py-1 rounded' to='/login'>Login</NavLink>
+                    Already Have An Account? <NavLink className=' font-bold bg-green-600 px-2 py-1 rounded' to='/login'>Login</NavLink>
                 </p>
                 {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
             </div>
